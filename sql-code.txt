@@ -20,8 +20,35 @@ SELECT name FROM movies WHERE name LIKE 'Car %';
 
 //Birthyear
 
+SELECT * FROM movies WHERE year = 1990;
+
 //1982
+
+SELECT COUNT(id) FROM movies WHERE year = 1982;
 
 //Stacktors
 
+SELECT * FROM actors WHERE last_name LIKE '%stack%';
+
 //Bottom of the Barrel
+
+SELECT genre, COUNT(genre) AS count FROM movies_genres GROUP BY genre ORDER BY count ASC;
+
+//Braveheart
+
+SELECT actors.id, actors.first_name, actors.last_name 
+FROM actors JOIN roles ON actors.id = roles.actor_id 
+JOIN movies ON roles.movie_id = movies.id 
+WHERE movies.name = 'Braveheart' ORDER BY actors.id ASC;
+
+//Leap Noir
+
+SELECT directors.first_name, directors.last_name, movies.name, movies.year FROM
+directors JOIN movies_directors ON directors.id = movies_directors.director_id 
+JOIN movies ON movies_directors.movie_id = movies.id
+JOIN movies_genres ON movies.id = movies_genres.movie_id
+WHERE (movies.year%4) = 0
+AND movies_genres.genre = 'Film-Noir';
+
+//Bacon
+
