@@ -1,0 +1,27 @@
+//Prolific
+
+SELECT actors.first_name, actors.last_name, COUNT(roles.movie_id) AS role_count FROM actors JOIN roles ON actors.id = roles.actor_id GROUP BY actors.id ORDER BY role_count DESC LIMIT 100; 
+
+//Fame Name Game - First Name
+
+SELECT first_name, COUNT(first_name) AS count 
+FROM actors GROUP BY first_name 
+ORDER BY count DESC LIMIT 100;
+
+//Fame Name Game - Last Name
+
+SELECT last_name, COUNT(last_name) AS count 
+FROM actors GROUP BY last_name 
+ORDER BY count DESC LIMIT 100;
+
+//Car
+
+SELECT name FROM movies WHERE name LIKE 'Car %';
+
+//Birthyear
+
+//1982
+
+//Stacktors
+
+//Bottom of the Barrel
